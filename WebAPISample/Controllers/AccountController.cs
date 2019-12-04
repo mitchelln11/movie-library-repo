@@ -25,9 +25,12 @@ namespace WebAPISample.Controllers
     {
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
+        //public ApplicationDbContext db;
+
 
         public AccountController()
         {
+            //db = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager,

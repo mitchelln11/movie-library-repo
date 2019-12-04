@@ -4,42 +4,83 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Mvc;
 using WebAPISample.Models;
 
 namespace WebAPISample.Controllers
 {
     public class MovieController : ApiController
     {
-        // GET api/values
-        public IEnumerable<string> Get()
+        private ApplicationDbContext db = new ApplicationDbContext();
+        // GET api/movie
+        //public IEnumerable<Movie> Get()
+        //{
+        //    // Retrieve all movies from db logic
+        //    List<Movie> movielist = db.Movies.ToList();
+        //    return movielist;
+        //}
+        public IHttpActionResult Get()
         {
-            // Retrieve all movies from db logic
-            return new string[] { "movie1 string", "movie2 string" };
-        }
+            //LINQ
+            List<Movie> movielist = db.Movies.ToList();          
+            return Ok(movielist);
+}
 
         // GET api/values/5
-        public string Get(int id)
+        //public string Get(int id)
+        //{
+        //    // Retrieve movie by id from db logic
+        //   return db.Movies.Where(m=>m.MovieId == id).SingleOrDefault().ToString(); 
+
+        //}
+        public IHttpActionResult Get(int id)
         {
-            // Retrieve movie by id from db logic
-            return "value";
+            return Ok(db.Movies.Where(m => m.MovieId == id).SingleOrDefault());
         }
+
+
 
         // POST api/values
-        public void Post([FromBody]Movie value)
-        {
-            // Create movie in db logic
-        }
+        //public void Post([FromBody]Movie value)
+        //{
+        //    // Create movie in db logic
+        //}
+
+
+
+
+        //------------------USE THIS---------------------
+        //public IHttpActionResult Post([FromBody]Movie value)
+        //{
+           
+        //}
+        //-----------------------------------------------
+
+
 
         // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
+        //public void Put(int id, [FromBody]string value)
+        //{
+        //    // Update movie in db logic
+        //}
+        public IHttpActionResult Post(int? id, [FromBody]Movie value)
         {
-            // Update movie in db logic
+            Movie moviefromdb = db.Movies.Where(m=>m.MovieId == id).FirstOrDefault();
+            moviefromdb.Genre = value.Genre;
+            moviefromdb.Director = value.Director;
+            moviefromdb.Title = value.Title;
+            return Ok(moviefromdb);
+
         }
 
         // DELETE api/values/5
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
             // Delete movie from db logic
+            Movie movie = db.Movies.Find(id);
+            db.Movies.Remove(movie);
+            db.SaveChanges();
+            return Ok();
         }
     }
 
