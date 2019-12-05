@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Mvc;
 using WebAPISample.Models;
+using HttpGetAttribute = System.Web.Http.HttpGetAttribute;
 
 namespace WebAPISample.Controllers
 {
@@ -19,6 +20,8 @@ namespace WebAPISample.Controllers
         //    List<Movie> movielist = db.Movies.ToList();
         //    return movielist;
         //}
+
+        [HttpGet]
         public IHttpActionResult Get()
         {
             //LINQ
@@ -33,6 +36,8 @@ namespace WebAPISample.Controllers
         //   return db.Movies.Where(m=>m.MovieId == id).SingleOrDefault().ToString(); 
 
         //}
+
+        [HttpGet]
         public IHttpActionResult Get(int id)
         {
             return Ok(db.Movies.Where(m => m.MovieId == id).SingleOrDefault());
