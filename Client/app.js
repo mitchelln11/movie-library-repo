@@ -10,9 +10,23 @@
         $.ajax({
             url: 'https://localhost:44352/api/movie',
             dataType: 'json',
+            type: 'post',
+            contentType: 'application/json',
+            data: JSON.stringify(dict),
+            success: function( data, textStatus, jQxhr ){
+                $('#response pre').html( data );
+            },
+            error: function( jqXhr, textStatus, errorThrown ){
+                console.log( errorThrown );
+            }
+        });
+
+        // e.preventDefault();
+
+        $.ajax({
+            url: 'https://localhost:44352/api/movie',
+            dataType: 'json',
             type: 'GET',
-            //contentType: 'application/json',
-            //data: JSON.stringify(dict),
             success: function(data){
                WriteToTable(data)
             },
@@ -21,7 +35,6 @@
                 }
         });
         e.preventDefault();
-        //$.post('api/movie', { "": [e.title, e.director, e.genre] });
     }
     $('#my-form').submit( processForm );
 
