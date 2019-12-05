@@ -39,7 +39,7 @@ namespace WebAPISample.Controllers
         }
 
 
-        // POST api/values
+        // POST api/movie
         //public void Post([FromBody]Movie value)
         //{
         //    // Create movie in db logic
@@ -59,7 +59,7 @@ namespace WebAPISample.Controllers
 
 
 
-        // PUT api/values/5
+        // PUT api/movie/5
         //public void Put(int id, [FromBody]string value)
         //{
         //    // Update movie in db logic
