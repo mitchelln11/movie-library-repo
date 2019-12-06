@@ -39,23 +39,21 @@ namespace WebAPISample.Controllers
         }
 
 
-
         // POST api/values
         //public void Post([FromBody]Movie value)
         //{
         //    // Create movie in db logic
         //}
 
+        
+        public IHttpActionResult Post([FromBody]Movie value)
+        {
 
-
-
-        //------------------USE THIS---------------------
-        //public IHttpActionResult Post([FromBody]Movie value)
-        //{
-           
-        //}
-        //-----------------------------------------------
-
+            db.Movies.Add(value);
+            db.SaveChanges();
+            List<Movie> movielist = db.Movies.ToList();
+            return Ok(movielist);            
+        }      
 
 
         // PUT api/values/5
@@ -63,14 +61,14 @@ namespace WebAPISample.Controllers
         //{
         //    // Update movie in db logic
         //}
-        public IHttpActionResult Post(int? id, [FromBody]Movie value)
+        public IHttpActionResult Put(int? id, [FromBody]Movie value)
         {
             Movie moviefromdb = db.Movies.Where(m=>m.MovieId == id).FirstOrDefault();
             moviefromdb.Genre = value.Genre;
             moviefromdb.Director = value.Director;
             moviefromdb.Title = value.Title;
+            db.SaveChanges();
             return Ok(moviefromdb);
-
         }
 
         // DELETE api/values/5
