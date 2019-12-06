@@ -44,11 +44,13 @@ namespace WebAPISample.Controllers
         }
 
 
+
         // POST api/movie
         //public void Post([FromBody]Movie value)
         //{
         //    // Create movie in db logic
         //}
+
 
         //------------------USE THIS---------------------
         public IHttpActionResult Post([FromBody]Movie value)
@@ -61,6 +63,7 @@ namespace WebAPISample.Controllers
             return Ok(value);
         }
         //-----------------------------------------------
+
 
 
 
