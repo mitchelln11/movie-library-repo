@@ -4,10 +4,9 @@
     <title>jQuery AJAX POST Form</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-
 
     <div id="response">
         <pre>
@@ -15,36 +14,26 @@
         </pre>
     </div>   
 
-
-
-
+<h1>Movie Library</h1>
+<div class="container">
     <form action="api/values" method="post" id="my-form">
         <input type="text" name="title" placeholder="Title" id="title-field" />
         <input type="text" name="director" placeholder="Director" />
         <input type="text" name="genre" placeholder="Genre" />
-
-
-    <button type="submit">Add Movie</button>
-
-</form>
-<form action="api/movie" method="get" id="my-otherform">
-    <input type="text" name="title" placeholder="Title" id="title-field" />
-    <input type="text" name="director" placeholder="Director" />
-    <input type="text" name="genre" placeholder="Genre" />
-
-    <button type="submit">See All Movies</button>
-
-</form>
-
-<p>Please enter the ID of the movie you want to edit</p>
-<form action="api/movie" method="get" id="my-getwithparamaterform">
-    <input type="text" name="movieid" placeholder="MovieId" id="id-field" />
-
-    <button type="submit">Submit Movie Id</button>
-
-</form>
-
-
+        <button type="submit">Add Movie</button>
+    </form>
+    <form action="api/movie" method="get" id="my-otherform">
+        <input type="text" name="title" placeholder="Title" id="title-field" hidden="true" />
+        <input type="text" name="director" placeholder="Director" hidden="true" />
+        <input type="text" name="genre" placeholder="Genre" hidden="true" />
+        <button type="submit">See All Movies</button>
+    </form>
+    <p>Please enter the ID of the movie you want to edit</p>
+    <form action="api/movie" method="get" id="my-getwithparamaterform">
+        <input type="text" name="movieid" placeholder="MovieId" id="id-field" />
+        <button type="submit">Submit Movie Id</button>
+    </form>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="app.js"></script>

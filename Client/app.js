@@ -105,7 +105,7 @@
     $('#my-getwithparamaterform').submit( getbyidform); 
 
     function WriteToTable(data){
-        var result = "<table><th>ID</th><th>Title</th><th>Director</th><th>Genre</th>";
+        var result = "<table class=\"gen-info\"><th>ID</th><th>Title</th><th>Director</th><th>Genre</th>";
             $.each( data, function( index, record ) {
                 result += "<tr><td>" + record.MovieId + "</td><td>" + record.Title + "</td><td>" + record.Director + "</td><td>" + record.Genre + "</td></tr>"
             });

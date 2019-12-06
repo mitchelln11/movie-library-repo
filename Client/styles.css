@@ -1,0 +1,8 @@
+table.gen-info {width:90vw;margin:0 auto;}
+table.gen-info tbody {display:flex;flex-direction: column;}
+table.gen-info tbody th, table.gen-info tbody td {width:30vw;flex:1;}
+
+form{margin: 5px 0;display: flex;align-items: center;justify-content: space-between;}
+form + p{margin:20px 0 0 5px;}
+input, button{width: 100%;margin: 0 5px;padding:10px 5px;}
+h1 {text-align:center;font-size: 3em;}
