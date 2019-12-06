@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Mvc;
 using WebAPISample.Models;
+using HttpGetAttribute = System.Web.Http.HttpGetAttribute;
 
 namespace WebAPISample.Controllers
 {
@@ -19,6 +20,8 @@ namespace WebAPISample.Controllers
         //    List<Movie> movielist = db.Movies.ToList();
         //    return movielist;
         //}
+
+        [HttpGet]
         public IHttpActionResult Get()
         {
             //LINQ
@@ -33,18 +36,25 @@ namespace WebAPISample.Controllers
         //   return db.Movies.Where(m=>m.MovieId == id).SingleOrDefault().ToString(); 
 
         //}
+
+        [HttpGet]
         public IHttpActionResult Get(int id)
         {
             return Ok(db.Movies.Where(m => m.MovieId == id).SingleOrDefault());
         }
 
 
+<<<<<<< HEAD
         // POST api/values
+=======
+        // POST api/movie
+>>>>>>> 4ea96b65695b7a4907db041f4cd20e1fdd5bff49
         //public void Post([FromBody]Movie value)
         //{
         //    // Create movie in db logic
         //}
 
+<<<<<<< HEAD
         
         public IHttpActionResult Post([FromBody]Movie value)
         {
@@ -54,9 +64,23 @@ namespace WebAPISample.Controllers
             List<Movie> movielist = db.Movies.ToList();
             return Ok(movielist);            
         }      
+=======
+        //------------------USE THIS---------------------
+        public IHttpActionResult Post([FromBody]Movie value)
+        {
+            //value = new Movie();
+            //value.MovieId;
+            db.Movies.Add(value);
+            db.SaveChanges();
+            List<Movie> movielist = db.Movies.ToList();
+            return Ok(value);
+        }
+        //-----------------------------------------------
+
+>>>>>>> 4ea96b65695b7a4907db041f4cd20e1fdd5bff49
 
 
-        // PUT api/values/5
+        // PUT api/movie/5
         //public void Put(int id, [FromBody]string value)
         //{
         //    // Update movie in db logic
