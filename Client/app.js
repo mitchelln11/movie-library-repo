@@ -80,15 +80,16 @@
     }
     function getbyidform( e ){
 
-        var MovieId = $('#my-getwithparamaterform').val();
+        var MovieId = $('#id-field').val();
+        
         
         $.ajax({
-        url: 'https://localhost:44352/api/movie/'+data.MovieId,
+        url: 'https://localhost:44352/api/movie/'+MovieId,
             dataType: 'json',
             type: 'get',
             contentType: 'application/json',          
             success: function( data ){
-                $("#response pre").html("<p>"+data.MovieId+"</p>");
+                $("#response pre").html("<p>" + data.Title + " " + data.Director + " " + data.Genre+"</p>");
 
             },
             error: function( jqXhr, textStatus, errorThrown ){
