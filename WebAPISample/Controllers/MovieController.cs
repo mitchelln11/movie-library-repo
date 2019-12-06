@@ -44,27 +44,14 @@ namespace WebAPISample.Controllers
         }
 
 
-<<<<<<< HEAD
-        // POST api/values
-=======
+
         // POST api/movie
->>>>>>> 4ea96b65695b7a4907db041f4cd20e1fdd5bff49
         //public void Post([FromBody]Movie value)
         //{
         //    // Create movie in db logic
         //}
 
-<<<<<<< HEAD
-        
-        public IHttpActionResult Post([FromBody]Movie value)
-        {
 
-            db.Movies.Add(value);
-            db.SaveChanges();
-            List<Movie> movielist = db.Movies.ToList();
-            return Ok(movielist);            
-        }      
-=======
         //------------------USE THIS---------------------
         public IHttpActionResult Post([FromBody]Movie value)
         {
@@ -77,7 +64,7 @@ namespace WebAPISample.Controllers
         }
         //-----------------------------------------------
 
->>>>>>> 4ea96b65695b7a4907db041f4cd20e1fdd5bff49
+
 
 
         // PUT api/movie/5
