@@ -3,154 +3,33 @@
 <head>
     <title>jQuery AJAX POST Form</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
 
-<div id="response">
-    <pre>
-        
-    </pre>
+<div class="col-sm-6">
+    <div id="response">
+        <pre>
+            
+        </pre>
+    </div>
+
+    <form action="api/values" method="post" id="my-form">
+        <input type="text" name="title" placeholder="Title" id="title-field" />
+        <input type="text" name="director" placeholder="Director" />
+        <input type="text" name="genre" placeholder="Genre" />
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+<div class="col-sm-6" id="full-table">
+    <button type="submit" id="all-movies">Display Movies</button>
+    <pre></pre>
 </div>
 
-<form action="api/values" method="post" id="my-form">
-    <input type="text" name="title" placeholder="Title" id="title-field" />
-    <input type="text" name="director" placeholder="Director" />
-    <input type="text" name="genre" placeholder="Genre" />
-
-    <button type="submit">Submit</button>
-</form>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script type="text/javascript" src="app.js"></script>
-
-<!-- <script>
-    (function($){
-
-    var xhr;
-    var _orgAjax = jQuery.ajaxSettings.xhr;
-    jQuery.ajaxSettings.xhr = function () {
-    xhr = _orgAjax();
-    return xhr;
-    };
-    
-    function processForm( e ){
-        var dict = {
-        	Title : this["title"].value,
-            Director: this["director"].value,
-            Genre: this["genre"].value
-        };
-
-        $.ajax({
-            url: 'https://localhost:44352/api/movie',
-            dataType: 'json',
-            type: 'post',
-            contentType: 'application/json',
-            data: JSON.stringify(dict),
-            success: function( data, textStatus, jQxhr ){
-                $('#response pre').html( data );
-            },
-            error: function( jqXhr, textStatus, errorThrown ){
-                console.log( errorThrown );
-            }
-        });
-        e.preventDefault();
-    }
-
-    $("#my-form").submit(function () {
-        var jqxhr = $.post('api/movie', $('#my-form').serialize())
-            .success(function () {
-                var loc = jqxhr.getResponseHeader('Location');
-                var a = $('<a/>', { href: loc, text: loc });
-                $('#message').html(a);
-            })
-            .error(function () {
-                $('#message').html("Error posting the update.");
-            });
-        return false;
-    });
-
-    $('#my-form').submit( processForm );
-    })(jQuery);
-
-    function updateClick() {
-        if ($("#updateButton").text().trim() ==
-            "Add") {
-            productAdd(Product);
-        }
-        else {
-            productUpdate(Product);
-        }
-    }
-    function addClick() {
-    }
-
-    function productAddSuccess(product) {
-        productAddRow(product);
-        formClear();
-    }
-
-    function productListSuccess(products) {
-        // Iterate over the collection of data
-        $.each(products, function (index, product) {
-            // Add a row to the Product table
-            productAddRow(product);
-        });
-    }
-
-    function formClear() {
-        $("#productname").val("");
-        $("#introdate").val("");
-        $("#url").val("");
-    }
-    function addClick() {
-        formClear();
-    }
-
-    function productUpdate(product) {
-    $.ajax({
-        url: "/api/Product",
-        type: 'PUT',
-        contentType:
-        "application/json;charset=utf-8",
-        data: JSON.stringify(product),
-        success: function (product) {
-        productUpdateSuccess(product);
-        },
-        error: function (request, message, error) {
-        handleException(request, message, error);
-        }
-    });
-    }
-
-    function productUpdateInTable(product) {
-        // Find Product in <table>
-        var row = $("#productTable button[data-id='" +
-            product.ProductId + "']").parents("tr")[0];
-        // Add changed product to table
-        $(row).after(productBuildTableRow(product));
-        // Remove original product
-        $(row).remove();
-        formClear(); // Clear form fields
-        // Change Update Button Text
-        $("#updateButton").text("Add");
-    }
-
-    function productDelete(ctl) {
-    var id = $(ctl).data("id");
-                
-        $.ajax({
-            url: "/api/Product/" + id,
-            type: 'DELETE',
-            success: function (product) {
-            $(ctl).parents("tr").remove();
-            },
-            error: function (request, message, error) {
-            handleException(request, message, error);
-            }
-        });
-    }
-
-</script> -->
 
 </body>
 </html>
