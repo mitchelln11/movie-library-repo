@@ -8,20 +8,6 @@
             Genre: this["genre"].value,
         };
 
-        // $.ajax({
-        // url: 'https://localhost:44352/api/movie',
-        //     dataType: 'json',
-        //     type: 'post',
-        //     contentType: 'application/json',
-        //     data: JSON.stringify(dict),
-        //     success: function( data ){
-        //         WriteToTable(data);
-        //     },
-        //     error: function( jqXhr, textStatus, errorThrown ){
-        //         console.log( errorThrown );
-        //     },
-        // });
-
         $.ajax({
             url: 'https://localhost:44352/api/movie',
             dataType: 'json',
@@ -34,8 +20,7 @@
             error: function( jqXhr, textStatus, errorThrown ){
                 console.log( errorThrown );
             }
-        });   
-                
+        });                   
         e.preventDefault();
     }
     function postform( e ){
@@ -57,25 +42,43 @@
             error: function( jqXhr, textStatus, errorThrown ){
                 console.log( errorThrown );
             },
-        });
- 
-                
+        });               
         e.preventDefault();
     }
+    function getbyidform( e ){
+
+        var MovieId = $('#my-getwithparamaterform').val();
+        
+        $.ajax({
+        url: 'https://localhost:44352/api/movie/'+data.MovieId,
+            dataType: 'json',
+            type: 'get',
+            contentType: 'application/json',          
+            success: function( data ){
+                $("#response pre").html("<p>"+data.MovieId+"</p>");
+
+            },
+            error: function( jqXhr, textStatus, errorThrown ){
+                console.log( errorThrown );
+            },
+        });               
+        e.preventDefault();
+    }
+
+
     $('#my-form').submit( postform );
     $('#my-otherform').submit( processForm );
-      
-
+    $('#my-getwithparamaterform').submit( getbyidform); 
 
     
     function WriteToTable(data){
-        var result = "<table><th>Title</th><th>Director</th><th>Genre</th>";
+        var result = "<table><th>ID</th><th>Title</th><th>Director</th><th>Genre</th>";
             $.each( data, function( index, record ) {
-                result += "<tr><td>" + record.Title + "</td><td>" + record.Director + "</td><td>" + record.Genre + "</td></tr>"
+                result += "<tr><td>" + record.MovieId + "</td><td>" + record.Title + "</td><td>" + record.Director + "</td><td>" + record.Genre + "</td></tr>"
             });
             result += "</table>"
             $("#response pre").html(result);
-        }
+        }        
 
 })(jQuery);
 

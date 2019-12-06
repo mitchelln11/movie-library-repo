@@ -13,7 +13,7 @@
 
 </div>
 
-<form action="api/values" method="post" id="my-form">
+<form action="api/movie" method="post" id="my-form">
     <input type="text" name="title" placeholder="Title" id="title-field" />
     <input type="text" name="director" placeholder="Director" />
     <input type="text" name="genre" placeholder="Genre" />
@@ -21,7 +21,7 @@
     <button type="submit">Add Movie</button>
 
 </form>
-<form action="api/values" method="post" id="my-otherform">
+<form action="api/movie" method="get" id="my-otherform">
     <input type="text" name="title" placeholder="Title" id="title-field" />
     <input type="text" name="director" placeholder="Director" />
     <input type="text" name="genre" placeholder="Genre" />
@@ -29,6 +29,16 @@
     <button type="submit">See All Movies</button>
 
 </form>
+
+<p>Please enter the ID of the movie you want to edit</p>
+<form action="api/movie" method="get" id="my-getwithparamaterform">
+    <input type="text" name="movieid" placeholder="MovieId" id="id-field" />
+
+    <button type="submit">Submit Movie Id</button>
+
+</form>
+
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
