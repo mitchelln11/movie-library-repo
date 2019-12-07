@@ -1,39 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>jQuery AJAX POST Form</title>
+    <title>Movie Library</title>
     <meta charset="utf-8">
+    <meta description="Movie library created by Carolynn and Mitchell through devCodeCamp.">
+    <meta name="copyright" content="CM Enterprises">
+    <meta name="author" content="Carolynn &amp, Mitchell, packers@bestteamever.com">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-    <div id="response">
-        <pre>
-            
-        </pre>
-    </div>   
-
-<h1>Movie Library</h1>
 <div class="container">
-    <form action="api/values" method="post" id="my-form">
-        <input type="text" name="title" placeholder="Title" id="title-field" />
-        <input type="text" name="director" placeholder="Director" />
-        <input type="text" name="genre" placeholder="Genre" />
-        <button type="submit">Add Movie</button>
-    </form>
-    <form action="api/movie" method="get" id="my-otherform">
-        <input type="text" name="title" placeholder="Title" id="title-field" hidden="true" />
-        <input type="text" name="director" placeholder="Director" hidden="true" />
-        <input type="text" name="genre" placeholder="Genre" hidden="true" />
-        <button type="submit">See All Movies</button>
-    </form>
-    <p>Please enter the ID of the movie you want to edit</p>
-    <form action="api/movie" method="get" id="my-getwithparamaterform">
-        <input type="text" name="movieid" placeholder="MovieId" id="id-field" />
-        <button type="submit">Submit Movie Id</button>
-    </form>
+        <h1>Movie Library</h1>
+    <div class="col-md-8">
+        <p>Welcome to our movie library. Check out our list of the classics by clicking below.</p>
+        <form action="api/movie" method="get" id="my-otherform">
+            <input type="text" name="title" placeholder="Title" id="title-field" hidden="true" />
+            <input type="text" name="director" placeholder="Director" hidden="true" />
+            <input type="text" name="genre" placeholder="Genre" hidden="true" />
+            <button type="submit" id="all-movies">See All Movies</button>
+        </form>
+        <p>Please feel free to add your own favorite movie.</p>
+        <form action="api/values" method="post" id="my-form">
+            <input type="text" name="title" placeholder="Type title here" id="title-field" />
+            <input type="text" name="director" placeholder="Type director here" />
+            <input type="text" name="genre" placeholder="Type genre here" />
+            <button type="submit">Add Movie</button>
+        </form>
+        <p>Please enter the ID of the movie you want to edit</p>
+        <form action="api/movie" method="get" id="my-getwithparamaterform">
+            <input type="text" name="movieid" placeholder="Type MovieId here" id="id-field" />
+            <button type="submit">Submit Movie Id</button>
+        </form>
+    </div>
+    <div class="col-md-4">
+        <img src="images/movie-theater-sign.jpg" alt="movie theater sign" title="movie theater sign" class="img-responsive top-marg" />
+    </div>
 </div>
+<div id="response">
+    <pre>
+        
+    </pre>
+</div> 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
