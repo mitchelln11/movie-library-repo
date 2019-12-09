@@ -98,11 +98,36 @@
         });               
         e.preventDefault();
     }
+    function editMovie( e ){
+        MovieId = $('#my-getwithparameterform').val();
+        var dict = {
+        	Title : this["title"].value,
+            Director: this["director"].value,
+            Genre: this["genre"].value,
+        }    
+                
+        $.ajax({
+        url: 'https://localhost:44352/api/movie/'+MovieId,
+            dataType: 'json',
+            type: 'put',
+            contentType: 'application/json', 
+            data: JSON.stringify(dict),         
+            success: function( data ){
+                $("#response pre").html("<p>" + data.Title + " " + data.Director + " " + data.Genre+"</p>");
+
+            },
+            error: function( jqXhr, textStatus, errorThrown ){
+                console.log( errorThrown );
+            },
+        });               
+        e.preventDefault();
+    }
 
 
     $('#my-form').submit( postform );
     $('#my-otherform').submit( processForm );
     $('#my-getwithparamaterform').submit( getbyidform); 
+    $('#my-editmovieform').submit( editMovie);
 
     function WriteToTable(data){
         var result = "<table><th>ID</th><th>Title</th><th>Director</th><th>Genre</th>";

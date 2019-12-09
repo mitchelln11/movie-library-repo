@@ -36,13 +36,21 @@
 
 </form>
 
-<p>Please enter the ID of the movie you want to edit</p>
+<p>Please enter the ID of the movie you want to see the details on</p>
 <form action="api/movie" method="get" id="my-getwithparamaterform">
     <input type="text" name="movieid" placeholder="MovieId" id="id-field" />
 
     <button type="submit">Submit Movie Id</button>
 
 </form>
+<p>Please enter the ID of the movie you want to edit the details on</p>
+<form action="api/movie" method="get" id="my-editmovieform">
+    <input type="text" name="movieid" placeholder="EditId" id="id-editfield" />
+
+    <button type="submit">Edit Movie</button>
+
+</form>
+
 
 
 
